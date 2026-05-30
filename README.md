@@ -22,7 +22,7 @@ I need some help since right now I  (Mr.Belmont64) am the only one working on th
  
     1. People who can do C++ and some other code
   
-    2. People Willing to write some lore items such has computer emails and jorunals
+    2. People wanting to help fix bugs the main game hasn't yet. (such has Z-levels)
 
  To help message me in **Discord** '@rickashy582' to join the Catalysm: What is a Man? (Title can change) 
 
