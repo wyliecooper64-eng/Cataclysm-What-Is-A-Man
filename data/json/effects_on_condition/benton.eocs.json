@@ -1,5 +1,20 @@
 [
   {
-    "id" : "drbenton_death_wipe",
-    "type" : "effect_on_condition",
-    "effect":
+    "id": "drbenton_death_wipe",
+    "type": "effect_on_condition",
+    "effect": [
+      { "u_assign_var": "benton_purge_active", "type": "global", "value": "yes" },
+      { "u_message": "Dr. Benton's mushroom body falls, you brace yourself for myrus spores to burst out... none come. It seems you were right. The Myrus is no longer a threat, but life is still shitty" }
+    ]
+  },
+  {
+    "id": "clear_fungal_spores_loop",
+    "type": "effect_on_condition",
+    "condition": { "u_has_var": "benton_purge_active", "type": "global", "value": "yes" },
+    "effect": [
+      { "u_remove_field": "fd_fungal_spore" }
+    ],
+    "false_effect": [],
+    "recurrence": "1 m"
+  }
+]
