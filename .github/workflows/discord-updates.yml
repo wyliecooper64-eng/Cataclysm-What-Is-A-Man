@@ -1,0 +1,38 @@
+name: Discord Commits Notification
+
+on:
+  push:
+    branches:
+      - master  # Or whatever your main working branch is named
+
+jobs:
+  discord_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const payload = context.payload;
+            const commits = payload.commits;
+            if (!commits || commits.length === 0) return;
+
+            // Format the commit list nicely
+            let commitList = commits.map(c => `• [\`${c.id.substring(0, 7)}\`](${c.url}) - ${c.message.split('\n')[0]} (${c.author.name})`).join('\n');
+
+            const discordPayload = {
+              embeds: [{
+                title: `🔨 New updates pushed to ${payload.repository.name}!`,
+                description: `**Branch:** ${payload.ref.replace('refs/heads/', '')}\n\n**Commits:**\n${commitList}`,
+                color: 5814783, // Nice Discord blurple color
+                url: payload.compare
+              }]
+            };
+
+            await fetch(process.env.DISCORD_WEBHOOK, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(discordPayload)
+            });
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
