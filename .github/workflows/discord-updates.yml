@@ -1,9 +1,10 @@
+
 name: Discord Commits Notification
 
 on:
   push:
     branches:
-      - master  # Or whatever your main working branch is named
+      - master
 
 jobs:
   discord_notification:
@@ -21,10 +22,12 @@ jobs:
             let commitList = commits.map(c => `• [\`${c.id.substring(0, 7)}\`](${c.url}) - ${c.message.split('\n')[0]} (${c.author.name})`).join('\n');
 
             const discordPayload = {
+              username: "CWisM Github Bot",
+              avatar_url: "https://github.com/wyliecooper64-eng.png",
               embeds: [{
                 title: `🔨 New updates pushed to ${payload.repository.name}!`,
                 description: `**Branch:** ${payload.ref.replace('refs/heads/', '')}\n\n**Commits:**\n${commitList}`,
-                color: 5814783, // Nice Discord blurple color
+                color: 5814783,
                 url: payload.compare
               }]
             };
