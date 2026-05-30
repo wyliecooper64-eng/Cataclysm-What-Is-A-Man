@@ -700,13 +700,12 @@
     "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "NOHEAD", "POISON", "NO_BREATHE", "IMMOBILE" ],
     "armor": { "bash": 2 }
-  }
-
-{
+ },
+ {
   "id" : "mon_drbenton_noemp",
   "type" : "MONSTER",
   "name" : { "str" : "Dr. Benton" },
-  "descritption" : "A man who is half mushroom, half robot. Nothing Human is left in his soul. The Fungal infection seems to bleed out of him, with this site you feel like killing him would end the spread of spores thus weaking the catayslm a small amount. This won't be a easy task though, since his robotic parts seems to be singaling for help",
+  "description" : "A man who is half mushroom, half robot. Nothing Human is left in his soul. The Fungal infection seems to bleed out of him, with this site you feel like killing him would end the spread of spores thus weaking the catayslm a small amount. This won't be a easy task though, since his robotic parts seems to be singaling for help",
   "default_faction" : "fungas",
   "bodytype" : "cyborg",
   "species": [ "FUNGUS"],
@@ -731,8 +730,40 @@
    "harvest": "fungaloid",
    "special_attacks": [ [ "FUNGUS", 20 ], [ "PARROT", 0 ] ],
    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
-    "flags": [ "SEES", "NOHEAD", "POISON", "NO_BREATHE", "IMMOBILE" ],
+    "flags": [ "SEES", "POISON", "NO_BREATHE", "IMMOBILE" ],
     "armor": { "bash": 20 }
+},
+{
+  "id" : "mon_drbenton_emphit",
+  "type" : "MONSTER",
+  "name" : { "str" : "Dr. Benton" },
+  "description" : "Dr. Benton robotic parts disable, weaking him. He is now just mushroom and shouldn't be that hard of a fight. Still if he hits you... your fucked.",
+  "default_faction" : "fungas",
+  "bodytype" : "cyborg",
+  "species": [ "FUNGUS"],
+  "diff" : 10,
+  "volume" : "40000 ml",
+  "weight" : "272155.4 g",
+  "hp" : 400,
+  "speed" : 100,
+  "material" : [ "veggy" ],
+  "symbol" : "@",
+  "color" : "dark_red",
+  "aggression" : 100,
+  "morale" : 100,
+  "melee_skill" : 6,
+  "melee_dice" : 3,
+  "melee_dice_sides" : 4,
+  "melee_damage" : [ { "damage_type" : "bash", "amount" : 0 } ],
+  "families": [ "prof_gross_anatomy", "prof_intro_biology", "prof_physiology", "prof_wp_fungaloid_basic" ],
+  "bleed_rate": 0,
+  "vision_day": 20,
+  "vision_night": 20,
+   "harvest": "fungaloid",
+   "special_attacks": [ [ "FUNGUS", 20 ], [ "PARROT", 0 ] ],
+   "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
+    "flags": [ "SEES", "POISON", "NO_BREATHE", "IMMOBILE" ],
+    "armor": { "bash": 5 }
   }
 ],
   
